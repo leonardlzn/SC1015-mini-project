@@ -3,11 +3,11 @@
 
 ### content
 - [Motivation](https://github.com/leonardlzn/SC1015-mini-project#motivation)
-- [Data](https://github.com/leonardlzn/SC1015-mini-project#components)
+- [Data](https://github.com/leonardlzn/SC1015-mini-project#data)
 - [Tools](https://github.com/leonardlzn/SC1015-mini-project#tools)
-- [Analysis](https://github.com/leonardlzn/SC1015-mini-project#requirements)
-- [Insights](https://github.com/leonardlzn/SC1015-mini-project#setup)
-- [Machine Learning](https://github.com/leonardlzn/SC1015-mini-project#evaluation)
+- [Analysis](https://github.com/leonardlzn/SC1015-mini-project#analysis)
+- [Insights](https://github.com/leonardlzn/SC1015-mini-project#insights)
+- [Machine Learning](https://github.com/leonardlzn/SC1015-mini-project#machine-learning)
 
 ---
 ### Motivation
