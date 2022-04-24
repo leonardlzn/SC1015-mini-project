@@ -62,9 +62,9 @@ Analysis of Fundamental data in our findings did not show a correlation to a goo
 We use the Autoregressive Integrated Moving Average, or ARIMA model to forecast the future stock price. ARIMA model is a statistical analysis model that predict future values based on past values. ARIMA model assume that past values have some residual effect on current or future value.
 
 There are 3 components in ARIMA:
-+ *Autoregression (AR)*:
-+ *Integrated (I)*:
-+ *Moving average (MA)*: 
++ Autoregression (AR)
++ Integrated (I)
++ Moving average (MA)
 
 ARIMA model is for non-seasonal time series. SARIMA model is for seasonal time series.
 
@@ -88,3 +88,7 @@ To build the ARIMA models, to following parameters
 + p: is the order of the Auto Regressive (AR) term which is the number of lags of Y to be used as predictors
 + q: is the order of the Moving Average (MA) term which is the number of lagged forecast errors
 + d: is the number of differencing required to make the time series stationary
+
+Methods of findings the parameters:
++ Using the ACF anbd PACF plot
++ Using the AUTO_ARIMA function from pmdarima
