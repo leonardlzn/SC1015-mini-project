@@ -1,13 +1,13 @@
-# Stock Price Analysis and Prediction With Alphavantage Dataset
+# Stock Price Analysis and Prediction with Alpha Vantage Dataset
 ### By Li Zhaonian and Muhammad Azharuddin Bin Azhar
 
 ### content
-- [Motivation](https://github.com/leonardlzn/SC1015-mini-project#motivation)
-- [Data](https://github.com/leonardlzn/SC1015-mini-project#data)
-- [Tools](https://github.com/leonardlzn/SC1015-mini-project#tools)
-- [Analysis](https://github.com/leonardlzn/SC1015-mini-project#analysis)
-- [Insights](https://github.com/leonardlzn/SC1015-mini-project#insights)
-- [Machine Learning](https://github.com/leonardlzn/SC1015-mini-project#machine-learning)
+- [Motivation](./README.md#motivation)
+- [Data](./README.md#data)
+- [Tools](./README.md#tools)
+- [Analysis](./README.md#analysis)
+- [Insights](./README.md#insights)
+- [Machine Learning](./README.md#machine-learning)
 
 ---
 ### Motivation
@@ -18,17 +18,20 @@ As references for stock prediction analysis, there is basic information like com
 
 ---
 ### Data
-Data used in this project is from [Alphavantage](https://www.alphavantage.co/documentation/). It provides past stock prices data up to 10 years for almost any companies, and also fundamental data of different companies like balance sheet, cash flow, earning and etc.
+Data used in this project is from [Alpha Vantage](https://www.alphavantage.co/documentation/). It provides past stock prices data up to 10 years for almost any companies, and also fundamental data of different companies like balance sheet, cash flow, earning and etc.
 
 Use `request` library to fetch from api for fundamental data, and because of api call limit, stock prices data was not fetched from api but was downloaded as csv and then imported in the notebook. Basically all data is loaded into pandas dataframe and later usage
 
 ---
 ### Tools
-1. pandas
-2. matplotlib
-3. seaborn
-4. tensorflow
-5. colab
++ jupyter notebook
++ pandas
++ numpy
++ matplotlib
++ seaborn
++ tensorflow
++ statsmodels
++ pmdarima
 
 ---
 ### Data cleaning and analysis
@@ -51,7 +54,37 @@ Lastly, moving average of stock prices of different number of days was plot with
 ---
 ### Insights
 
-analysis of Fundamental data in our findings did not show a correlation to a good extent with the stock price, so we conclude that it is not suitable to be used for stock prediction model training. However out result showed that stock price of a company can be affected by the competitors's stock price, but not as drastical compared to the company's past stock price data. Moreover, competitors' data might not be always available, hence we concluded that past stock price data has the highest relevance on affecting current and future stock price and should be a good choice for stock prediction model training.
+Analysis of Fundamental data in our findings did not show a correlation to a good extent with the stock price, so we conclude that it is not suitable to be used for stock prediction model training. However out result showed that stock price of a company can be affected by the competitors's stock price, but not as drastical compared to the company's past stock price data. Moreover, competitors' data might not be always available, hence we concluded that past stock price data has the highest relevance on affecting current and future stock price and should be a good choice for stock prediction model training.
 
 ---
 ### Machine Learning
+
+We use the Autoregressive Integrated Moving Average, or ARIMA model to forecast the future stock price. ARIMA model is a statistical analysis model that predict future values based on past values. ARIMA model assume that past values have some residual effect on current or future value.
+
+There are 3 components in ARIMA:
++ *Autoregression (AR)*:
++ *Integrated (I)*:
++ *Moving average (MA)*: 
+
+ARIMA model is for non-seasonal time series. SARIMA model is for seasonal time series.
+
+#### Datasets Used
+For the analysis, we use the Alpha Vantage Daily Stock on Google stock closing price.
+
+#### Stationary
+ARIMA required the time series data to be stationary.
+
+For the time series to be stationary, it's
++ Mean must be constant
++ Variance must be constant
++ There are no seasonality
+
+Methods of checking if the time series is stationary:
++ Visualizing the time series plot
++ Augmented Dickey-Fuller (ADF) test
+
+#### ARIMA Parameters
+To build the ARIMA models, to following parameters
++ p: is the order of the Auto Regressive (AR) term which is the number of lags of Y to be used as predictors
++ q: is the order of the Moving Average (MA) term which is the number of lagged forecast errors
++ d: is the number of differencing required to make the time series stationary
